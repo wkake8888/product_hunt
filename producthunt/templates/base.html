@@ -10,6 +10,7 @@
 
     <link rel="canonical" href="https://getbootstrap.com/docs/4.3/examples/navbar-static/">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link href="static/open-iconic/font/css/open-iconic-bootstrap.css" rel="stylesheet">
     <!-- Bootstrap core CSS -->
 
     <style>
@@ -35,15 +36,12 @@
     <nav class="navbar navbar-expand-md navbar-light bg-light mb-4">
     {% load static %}
     <img class="d-inline-block alighn-top" height=30px width=30px src="{% static 'logo.png' %}" />
-    <a class="navbar-brand" href="#">Pruduct Hunt</a>
+    <a class="navbar-brand" href="{% url "home" %}">Product Hunt</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarCollapse">
      <ul class="navbar-nav mr-auto">
-      <li class="nav-item active">
-        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-      </li>
       {% if user.is_authenticated %}
       <li class="nav-item">
         <a class="nav-link" href="javascript:{document.getElementById('logout').submit()}">Logout</a>
@@ -51,6 +49,9 @@
           {% csrf_token %}
         </form>
         <input type="hidden">
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'create' %}"><span class="oi oi-plus"></span></a>
+        </li>
       {% else %}
       <li class="nav-item">
         <a class="nav-link" href="{% url 'signup' %}">Sign Up</a>
