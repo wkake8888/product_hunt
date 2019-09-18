@@ -24,10 +24,9 @@ Product Huntというサイトを真似て作成
 ## インストール
 
 ```
-$ git clone https://github.com/TomoakiTANAKA/awesome-tool
-$ cd awesome-tool
-$ sh setup.sh
-$ ~do anything~
+$ git clone https://github.com/wkake8888/product_hunt.git
+$ cd product_hunt
+$ python manage.py runserver
 ```
 
 ## その他
